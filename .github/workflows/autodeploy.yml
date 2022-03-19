@@ -46,12 +46,12 @@ jobs:
           hexo clean
           hexo generate
 
-      - name: 部署到gihub pages
-        run: |
-          git config --global user.name "huxiuyuan"
-          git config --global user.email "811437621@qq.com"
-          # git clone https://github.com/huxiuyuan/huxiuyuan.github.io.git .deploy_git
-          hexo deploy
+#       - name: 部署到gihub pages
+#         run: |
+#           git config --global user.name "huxiuyuan"
+#           git config --global user.email "811437621@qq.com"
+#           # git clone https://github.com/huxiuyuan/huxiuyuan.github.io.git .deploy_git
+#           hexo deploy
 
       - name: 部署到云服务器
         uses: cross-the-world/scp-pipeline@master
