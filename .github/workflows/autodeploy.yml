@@ -50,7 +50,7 @@ jobs:
         run: |
           git config --global user.name "huxiuyuan"
           git config --global user.email "811437621@qq.com"
-          git clone https://github.com/huxiuyuan/huxiuyuan.github.io.git .deploy_git
+          # git clone https://github.com/huxiuyuan/huxiuyuan.github.io.git .deploy_git
           hexo deploy
 
       - name: 部署到云服务器
