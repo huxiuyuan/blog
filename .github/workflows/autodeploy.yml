@@ -34,10 +34,10 @@ jobs:
         id: cache
         with:
           path: node_modules
-          key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+          key: ${{runner.OS}}-${{env.cache-name}}
 
       - name: 安装依赖
-        # if: steps.cache.outputs.cache-hit ≠ 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm install --save
 
@@ -55,9 +55,6 @@ jobs:
 
       - name: 部署到云服务器
         uses: cross-the-world/scp-pipeline@master
-        env:
-          WELCOME: "ssh scp ssh pipelines"
-          LASTSSH: "Doing something after copying"
         with:
           host: ${{ secrets.USER_HOST }}
           user: ${{ secrets.USER_NAME }}
